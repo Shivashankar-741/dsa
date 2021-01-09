@@ -33,8 +33,14 @@ class SinglyLinkedList {
 	}
 
 	// PUSH METHOD
+	// "HI"
+	// HT
+	// "HI"->"HELLO"
+	// H       T
+	// "HI"->"HELLO"->"HEY"
+	//  H               T
 	// IF THE LIST IS EMPTY SET BOTH THE HEAD AND TAIL IN SAME FIRST POSITION
-	// ELSE THE LIST CONTAINS SOME LIST AFTER THE TAIL CREATE THE NEW LIST AND UPDATE IT AS NEWLTAIL
+	// ELSE IF THE LIST CONTAINS SOME LIST, AFTER THE TAIL CREATE THE NEW LIST AND UPDATE IT AS NEWLTAIL
 	push(val) {
 		var newNode = new Node(val);
 		if (!this.head) {
