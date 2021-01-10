@@ -52,30 +52,64 @@ class SinglyLinkedList {
 			this.tail = newNode;
 		}
 		this.length++;
-		console.log(this);
+		// console.log(this);
 		return this;
 	}
-	// pop() {
-	// 	if (!this.head) {
-	// 		return undefined;
-	// 	} else {
-	// 		var current = this.head;
-	// 		// var newTail = current;
-	// 		while (current.next) {
-	// 			// newTail = newTail.next;
-	// 			current = current.next;
-	// 		}
-	// 		var newTail = current;
-	// 		this.tail = newTail;
-	// 		this.tail.next = null;
-	// 		this.length--;
-	// 		return current;
-	// 	}
+
+	// IF THE LIST EMPTY IT MEANS THERE IS NO NODE IN THE LIST THEN RETURNS UNDEFINED
+	// ELSE LOOP THROUGH THE LIST UNTILL THE LAST ELEMENT OF THE NODES{
+	// INITALLY THE CURRENT AND NEWTAIL IN THE HEAD
+	//  WE HAVE TWO VAIRABLE CURRENT AND NEWNODE
+	// LOOP THROUGH THE LIST WHEN THE NEXT VALUE GET NULL
 	// }
+	pop() {
+		if (!this.head) return undefined;
+		else {
+			var current = this.head; //updating will change here
+			var newTail = current; // set will change here
+			while (current.next) {
+				console.log(current);
+				newTail = current; //set newtail = current
+				current = current.next; // updating current = next one
+			}
+			this.tail = newTail;
+			this.tail.next = null;
+			this.length--;
+			if (this.length === 0) {
+				this.head = null;
+				this.tail = null;
+			}
+			return current;
+		}
+	}
+
+	// IF THE LIST EMPTY IT MEANS THERE IS NO NODE IN THE LIST THEN RETURNS UNDEFINED
+	// ELSE SET THE HEAD AS SECOND NODE, WILL DISCONNECT THE FIRST NODE AUTOMATICALLY WIL BE LTHE FIRST REMOVED
+
+	shift() {
+		if (!this.head) return undefined;
+		else {
+			var current = this.head;
+			this.head = current.next;
+			this.length--;
+		}
+		if (this.length === 0) {
+			this.tail = null;
+		}
+		return current;
+	}
+
+	unshift(val) {
+		var newNode = new Node(val);
+		if (!this.head) {
+			this.head = newNode;
+			this.tail = newNode;
+		}
+	}
 }
 
 var list = new SinglyLinkedList();
 
-list.push("Hi");
-list.push("there");
-list.push("you");
+// list.push("Hi");
+// list.push("there");
+// list.push("you");
