@@ -155,7 +155,7 @@ class SinglyLinkedList {
 		// 	}
 		// 	var change = current;
 		// 	change.val = val;
-		// 	return change;
+		// 	return change; // return true
 		// }
 		var foundNode = this.get(index);
 		if (foundNode) {
