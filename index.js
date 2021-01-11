@@ -157,12 +157,12 @@ class SinglyLinkedList {
 		// 	change.val = val;
 		// 	return change;
 		// }
-		// var foundNode = this.get(index);
-		// if (foundNode) {
-		// 	foundNode.val = val;
-		// 	return true;
-		// }
-		// return false;
+		var foundNode = this.get(index);
+		if (foundNode) {
+			foundNode.val = val;
+			return true;
+		}
+		return false;
 	}
 }
 
