@@ -164,10 +164,44 @@ class SinglyLinkedList {
 		}
 		return false;
 	}
+
+	insert(index, val) {
+		// if (index < 0 || index > this.length) return false;
+		// if (index === this.length) return !!this.push(val);
+		// if (index === 0) return !!this.unshift(val);
+
+		// var newNode = new Node(val);
+		// var prev = this.get(index - 1);
+		// var temp = prev.next;
+		// prev.next = newNode;
+		// newNode.next = temp;
+		// this.length++;
+		// return true;
+
+		if (index < 0 || index > this.length) return false;
+		if (index === this.length) {
+			this.length++;
+			this.push(val);
+		}
+		if (index === 0) {
+			this.length++;
+			this.unshift(val);
+		} else {
+			var newNode = new Node(val);
+			var prev = this.get(index - 1);
+			var nextOne = this.get(index);
+			prev.next = newNode;
+			newNode.next = nextOne;
+			this.length++;
+			return true;
+		}
+	}
 }
 
 var list = new SinglyLinkedList();
 
-// list.push("Hi");
-// list.push("there");
-// list.push("you");
+list.push("Hi");
+list.push("there");
+list.push("you");
+list.push("I'm");
+list.push("here");
