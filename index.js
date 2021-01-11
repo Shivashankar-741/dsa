@@ -99,12 +99,70 @@ class SinglyLinkedList {
 		return current;
 	}
 
+	// IF THE LIST EMPTY IT MEANS THERE IS NO NODE, SET THE HEAD AND TAIL IN THE SAME LIST
+	// ELSE CREATE THE NEWNODE AND SET THE HEAD AS NEXT OF NEWNODE AND SET HEAD AS NEWNODE
+
 	unshift(val) {
 		var newNode = new Node(val);
 		if (!this.head) {
 			this.head = newNode;
 			this.tail = newNode;
+		} else {
+			newNode.next = this.head;
+			this.head = newNode;
 		}
+		this.length++;
+		return this;
+	}
+
+	get(index) {
+		// IF THE THE LENGHT OF LIST IS GREATER THAN OR EQULA TO INDEX OR INDEX LESS THAN ZERO RETURN NULL
+		// ELSE SET COUNTER AS ZERO INITIALLY LOOP THROUGH THE HEAD UNTILL COUNTER NOT EQAUL TO INDEX
+		if (index < 0 || index >= this.length) {
+			return null;
+		} else {
+			// var current = this.head;
+			// var increment = 0;
+			// while (current.next) {
+			// 	if (increment === index) {
+			// 		return current;
+			// 	} else {
+			// 		current = current.next;
+			// 		increment++;
+			// 	}
+			// }
+
+			var counter = 0;
+			var current = this.head;
+			while (counter !== index) {
+				current = current.next;
+				counter++;
+			}
+			return current;
+		}
+	}
+	set(index, val) {
+		// IF THE THE LENGHT OF LIST IS GREATER THAN OR EQUAL TO INDEX OR INDEX LESS THAN ZERO RETURN NULL
+		// ELSE SET COUNTER AS ZERO INITIALLY LOOP THROUGH THE HEAD UNTILL COUNTER NOT EQAUL TO INDEX, WHEN THE INDEX FOUND CHANGE THE VALUE
+		// if (index < 0 || index >= this.length) {
+		// 	return null;
+		// } else {
+		// 	var counter = 0;
+		// 	var current = this.head;
+		// 	while (counter !== index) {
+		// 		current = current.next;
+		// 		counter++;
+		// 	}
+		// 	var change = current;
+		// 	change.val = val;
+		// 	return change;
+		// }
+		// var foundNode = this.get(index);
+		// if (foundNode) {
+		// 	foundNode.val = val;
+		// 	return true;
+		// }
+		// return false;
 	}
 }
 
