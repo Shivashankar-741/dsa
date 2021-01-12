@@ -75,7 +75,7 @@ class SinglyLinkedList {
 			this.tail = newTail;
 			this.tail.next = null;
 			this.length--;
-			if (this.length === 0) {
+			if (this.length === 0) {Node {val: "five", next: null, prev: Node}
 				this.head = null;
 				this.tail = null;
 			}
