@@ -68,7 +68,7 @@ class SinglyLinkedList {
 			var current = this.head; //updating will change here
 			var newTail = current; // set will change here
 			while (current.next) {
-				console.log(current);
+				// console.log(current);
 				newTail = current; //set newtail = current
 				current = current.next; // updating current = next one
 			}
@@ -195,6 +195,33 @@ class SinglyLinkedList {
 			this.length++;
 			return true;
 		}
+	}
+
+	remove(index) {
+		// if (index < 0 || index >= this.length) return undefined;
+		// if (index === this.length - 1) {
+		// 	this.length--;
+		// 	this.pop();
+		// }
+		// if (index === 0) {
+		// 	this.length--;
+		// 	this.shift();
+		// } else {
+		// 	var prev = this.get(index - 1);
+		// 	var nextOne = this.get(index + 1);
+		// 	prev.next = nextOne;
+		// 	this.length--;
+		// 	return true;
+		// }
+
+		if (index < 0 || index >= this.length) return undefined;
+		if (index === 0) return this.shift();
+		if (index === this.length - 1) return this.pop();
+		var previousNode = this.get(index - 1);
+		var removed = previousNode.next;
+		previousNode.next = removed.next;
+		this.length--;
+		return removed;
 	}
 }
 
