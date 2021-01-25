@@ -50,6 +50,7 @@ class BinarySearchTree {
     if (!found) return undefined;
     return current;
   }
+
   contains(value) {
     if (this.root === null) return false;
     var current = this.root,
@@ -65,11 +66,22 @@ class BinarySearchTree {
     }
     return false;
   }
-}
 
-//      10
-//   5     13
-// 2  7  11  16
+  BFS() {
+    var node = this.root,
+      data = [],
+      queue = [];
+    queue.push(node);
+
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node.value);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    return data;
+  }
+}
 
 var tree = new BinarySearchTree();
 tree.insert(10);
